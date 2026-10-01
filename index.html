@@ -1,96 +1,543 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Celinka Survey Consulting &amp; Services | Maputo, Moçambique</title>
-  <meta name="description" content="Empresa moçambicana de consultoria e pesquisa estatística. Monitoria e Avaliação, Recolha de Dados CAPI, Pesquisa em Saúde. +40.000 entrevistas, 11 províncias, 97% taxa de resposta.">
-  <meta name="keywords" content="consultoria, pesquisa estatística, monitoria, avaliação, CAPI, Moçambique, Maputo, dados, saúde pública, malária">
-  <meta name="author" content="Celinka Survey Consulting &amp; Services Lda.">
+  <meta name="description" content="Empresa líder em consultoria e pesquisa estatística em Moçambique. +40.000 entrevistas, 11 províncias, 97% taxa de resposta.">
   <meta name="theme-color" content="#0C2237">
-  <meta property="og:type" content="website">
   <meta property="og:title" content="Celinka Survey — Dados para o Desenvolvimento Sustentável">
-  <meta property="og:description" content="Empresa moçambicana de pesquisa estatística e monitoria. +40k entrevistas, 11 províncias, Harvard, PNUD, UNICEF.">
+  <meta property="og:image" content="img/hero-1.jpg">
+  <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.celinkasurvey.com">
-  <meta property="og:image" content="https://celinkasurvey.com/img/hero-1.jpg">
-  <link rel="icon" href="assets/img/logo-celinka.png">
+  <link rel="icon" type="image/png" href="img/logo.png">
+  <link rel="apple-touch-icon" href="img/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- EmailJS — configure as chaves em js/main.js (EMAILJS_CONFIG) -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <a class="skip-link" href="#app" data-i18n="skip">Saltar para o conteúdo</a>
+<a class="skip-link" href="#sobre" data-i18n="skip">Saltar para o conteúdo</a>
 
-  <!-- Barra utilitária -->
-  <div class="utility-bar">
+<!-- ═══ BARRA UTILITÁRIA ═══════════════════════════════════════ -->
+<div class="utility-bar">
+  <div class="container">
+    <div class="utility-left" data-i18n="hero_badge">Maputo, Moçambique · Desde 2021</div>
+    <div class="utility-right">
+      <a class="u-link" href="mailto:info@celinkasurvey.com" aria-label="Email"><span data-icon="mail"></span><span class="u-text">info@celinkasurvey.com</span></a>
+      <a class="u-link" href="tel:+258847904373" aria-label="Telefone"><span data-icon="phone"></span><span class="u-text">+258 847 904 373</span></a>
+      <div class="lang-switch" role="group" aria-label="Idioma / Language">
+        <button type="button" data-lang="pt" aria-pressed="true">PT</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ CABEÇALHO ══════════════════════════════════════════════ -->
+<header class="site-header" id="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="#hero" aria-label="Celinka Survey — Início">
+      <img src="img/logo-celinka.png" alt="Celinka Survey Consultoria" width="298" height="70">
+    </a>
+    <nav class="main-nav" id="main-nav" aria-label="Principal">
+      <button class="icon-btn nav-close" type="button" id="nav-close" aria-label="Fechar menu"><span data-icon="close"></span></button>
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a class="nav-link" href="#sobre" data-has-children aria-haspopup="true"><span data-i18n="nav_sobre">Sobre Nós</span><span data-icon="chev"></span></a>
+          <ul class="dropdown">
+            <li><a href="#sobre" data-i18n="nav_quem">Quem Somos</a></li>
+            <li><a href="#tecnologia" data-i18n="nav_tecnologia">Tecnologia e Qualidade</a></li>
+            <li><a href="#parceiros" data-i18n="nav_parceiros">Parceiros</a></li>
+            <li><a href="#historias" data-i18n="nav_historias">Histórias de Sucesso</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#servicos" data-has-children aria-haspopup="true"><span data-i18n="nav_servicos">Serviços</span><span data-icon="chev"></span></a>
+          <ul class="dropdown">
+            <li><a href="#svc-1" data-i18n="svc1_h">Monitoria e Avaliação (M&amp;A)</a></li>
+            <li><a href="#svc-2" data-i18n="svc2_h">Recolha de Dados de Grande Escala (CAPI)</a></li>
+            <li><a href="#svc-3" data-i18n="svc3_h">Pesquisa em Saúde e Estudos Socioeconómicos</a></li>
+            <li><a href="#svc-4" data-i18n="svc4_h">Sistemas de Informação e Análise</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="#campo" data-i18n="nav_campo">No Campo</a></li>
+        <li class="nav-item"><a class="nav-link" href="#portfolio" data-i18n="nav_portfolio">Portfólio</a></li>
+        <li class="nav-item"><a class="nav-link" href="#noticias" data-i18n="nav_noticias">Notícias</a></li>
+        <li class="nav-item"><a class="nav-link" href="#carreiras" data-i18n="nav_carreiras">Carreiras</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a class="btn btn-primary btn-sm header-cta" href="#contacto" data-i18n="nav_contacto">Contactar</a>
+      <button class="icon-btn menu-toggle" type="button" id="menu-toggle" aria-label="Abrir menu" aria-controls="main-nav" aria-expanded="false"><span data-icon="menu"></span></button>
+    </div>
+  </div>
+</header>
+<div class="nav-backdrop" id="nav-backdrop"></div>
+
+<main>
+
+<!-- ═══ HERO ═══════════════════════════════════════════════════ -->
+<section id="hero" class="hero" aria-roledescription="carousel" aria-label="Destaques">
+  <div class="hero-track" aria-hidden="true">
+    <div class="hero-slide is-active"><div class="hero-bg" style="background-image:url('img/hero-1.jpg')"></div></div>
+    <div class="hero-slide"><div class="hero-bg" style="background-image:url('img/hero-2.jpg')"></div></div>
+    <div class="hero-slide"><div class="hero-bg" style="background-image:url('img/hero-3.jpg')"></div></div>
+    <div class="hero-slide"><div class="hero-bg" style="background-image:url('img/hero-4.jpg')"></div></div>
+    <div class="hero-slide"><div class="hero-bg" style="background-image:url('img/hero-5.jpg')"></div></div>
+  </div>
+  <div class="hero-shade"></div>
+  <div class="hero-content">
     <div class="container">
-      <div class="utility-left" data-i18n="utility">Maputo, Moçambique · Desde 2021</div>
-      <div class="utility-right">
-        <a class="u-link" href="mailto:info@celinkasurvey.com" aria-label="Email">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-          <span class="u-text">info@celinkasurvey.com</span>
-        </a>
-        <a class="u-link" href="tel:+258842995744" aria-label="Telefone">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
-          <span class="u-text">(+258) 842 995 744</span>
-        </a>
-        <div class="lang-switch" role="group" aria-label="Idioma / Language">
-          <button type="button" data-lang="pt" aria-pressed="true">PT</button>
-          <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      <div class="hero-panel">
+        <div class="hero-kicker" data-i18n="hero_badge">Maputo, Moçambique · Desde 2021</div>
+        <h1 data-i18n-html="hero_h1">Dados e soluções para o <em>desenvolvimento sustentável</em></h1>
+        <p data-i18n="hero_sub">Especialistas em pesquisa estatística, monitoria e avaliação de impacto com cobertura nacional. Evidências rigorosas que orientam políticas públicas em Moçambique.</p>
+        <div class="hero-ctas">
+          <a href="#servicos" class="btn btn-primary"><span data-i18n="hero_btn1">Explorar Serviços</span><span data-icon="arrow"></span></a>
+          <a href="#campo" class="btn btn-ghost-light" data-i18n="hero_btn2">Ver Trabalho de Campo</a>
         </div>
       </div>
     </div>
   </div>
-
-  <!-- Cabeçalho -->
-  <header class="site-header" id="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="#/" aria-label="Celinka Survey — Início">
-        <img src="assets/img/logo-celinka.png" alt="Celinka Survey Consultoria" width="298" height="70">
-      </a>
-      <nav class="main-nav" id="main-nav" aria-label="Principal">
-        <button class="icon-btn nav-close" type="button" id="nav-close" aria-label="Fechar menu">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
-        </button>
-        <ul class="nav-list" id="nav-list"></ul>
-      </nav>
-      <div class="header-actions">
-        <button class="icon-btn" type="button" id="search-open" aria-label="Pesquisar">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-        </button>
-        <a class="btn btn-primary btn-sm header-cta" href="#/contact" data-i18n="headerCta">Fale connosco</a>
-        <button class="icon-btn menu-toggle" type="button" id="menu-toggle" aria-label="Abrir menu" aria-controls="main-nav" aria-expanded="false">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-        </button>
+  <div class="hero-controls">
+    <div class="container">
+      <div class="hero-dots" id="hero-dots"></div>
+      <div class="hero-arrows">
+        <button class="hero-arrow" type="button" data-dir="-1" aria-label="Anterior"><span data-icon="left"></span></button>
+        <button class="hero-arrow" type="button" data-dir="1" aria-label="Seguinte"><span data-icon="right"></span></button>
       </div>
-    </div>
-  </header>
-  <div class="nav-backdrop" id="nav-backdrop"></div>
-
-  <main id="app" tabindex="-1"></main>
-
-  <footer class="site-footer" id="site-footer"></footer>
-
-  <!-- Pesquisa -->
-  <div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-label="Pesquisa">
-    <div class="search-box">
-      <div class="search-input-wrap">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-        <input type="search" id="search-input" autocomplete="off">
-        <button class="icon-btn" type="button" id="search-close" aria-label="Fechar">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
-        </button>
-      </div>
-      <div class="search-results" id="search-results"></div>
     </div>
   </div>
+</section>
 
-  <button class="back-to-top" type="button" id="back-to-top" aria-label="Voltar ao topo">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg>
-  </button>
+<!-- Faixa de números -->
+<section class="stats-band" aria-label="Números">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat"><div class="stat-bar"></div><div class="stat-n">+40k</div><div class="stat-l" data-i18n="hero_s1">Entrevistas realizadas</div></div>
+      <div class="stat"><div class="stat-bar"></div><div class="stat-n">+600</div><div class="stat-l" data-i18n="hero_s2">Inquiridores certificados</div></div>
+      <div class="stat"><div class="stat-bar"></div><div class="stat-n">11</div><div class="stat-l" data-i18n="hero_s3">Províncias cobertas</div></div>
+      <div class="stat"><div class="stat-bar"></div><div class="stat-n">97%</div><div class="stat-l" data-i18n="hero_s4">Taxa de resposta</div></div>
+    </div>
+  </div>
+</section>
 
-  <script src="assets/js/content.js"></script>
-  <script src="assets/js/main.js"></script>
+<!-- ═══ SOBRE ══════════════════════════════════════════════════ -->
+<section id="sobre" class="section" tabindex="-1">
+  <div class="container split">
+    <div class="about-media reveal">
+      <img src="img/sobre-main.jpg" alt="Equipa Celinka Survey" class="about-main">
+      <img src="img/sobre-float.jpg" alt="Análise de dados" class="about-float">
+      <div class="about-badge"><div class="bn">2021</div><div class="bl" data-i18n-html="sobre_badge">Fundada em<br>Maputo</div></div>
+    </div>
+    <div class="prose">
+      <span class="eyebrow" data-i18n="sobre_label">Sobre Nós</span>
+      <h2 class="section-title" data-i18n-html="sobre_h2">Uma empresa moçambicana de <em>referência</em> em dados e pesquisa</h2>
+      <p data-i18n="sobre_lead">Fundada em 2021 em Maputo, a Celinka Survey nasceu com o propósito de transformar dados em evidências que impulsionam decisões estratégicas para o desenvolvimento sustentável.</p>
+      <p data-i18n="sobre_p1">Somos especialistas em estudos estatísticos, avaliações de impacto e monitoria de programas de saúde e socioeconómicos. A nossa missão é fornecer evidências rigorosas orientadas a dados que melhorem a eficácia das intervenções sociais em todo o território nacional.</p>
+      <p data-i18n="sobre_p2">A nossa equipa combina experiência internacional com profundo conhecimento do contexto local e das línguas das comunidades onde actuamos.</p>
+      <div class="pillars">
+        <div class="pillar"><span data-icon="check"></span><div><strong data-i18n="val1_t">Rigor Metodológico</strong><span data-i18n="val1_d">Os mais altos padrões científicos em cada estudo</span></div></div>
+        <div class="pillar"><span data-icon="check"></span><div><strong data-i18n="val2_t">Inovação CAPI</strong><span data-i18n="val2_d">Tecnologia de última geração no campo</span></div></div>
+        <div class="pillar"><span data-icon="check"></span><div><strong data-i18n="val3_t">Transparência Total</strong><span data-i18n="val3_d">Auditoria interna e externa em todos os projectos</span></div></div>
+        <div class="pillar"><span data-icon="check"></span><div><strong data-i18n="val4_t">Inclusão Local</strong><span data-i18n="val4_d">Multilíngues nas línguas das comunidades</span></div></div>
+      </div>
+      <div style="margin-top:32px"><a href="#servicos" class="btn btn-blue"><span data-i18n="sobre_btn">Ver os Nossos Serviços</span><span data-icon="arrow"></span></a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SERVIÇOS ═══════════════════════════════════════════════ -->
+<section id="servicos" class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow" data-i18n="svc_label">O Que Fazemos</span>
+        <h2 class="section-title" data-i18n-html="svc_h2">Serviços <em>especializados</em> em cada etapa</h2>
+        <p class="section-lead" data-i18n="svc_lead">Da concepção ao relatório final, oferecemos soluções integradas de pesquisa com rigor metodológico e tecnologia de ponta.</p>
+      </div>
+      <a class="link-arrow" href="#contacto"><span data-i18n="svc_cta">Pedir uma proposta</span><span data-icon="arrow"></span></a>
+    </div>
+    <div class="grid grid-4">
+      <article class="card svc-card is-hoverable reveal" id="svc-1">
+        <div class="card-media" role="img" aria-label="Monitoria e Avaliação" style="background-image:url('img/svc-ma.jpg')"></div>
+        <div class="card-body">
+          <span class="theme-card"><span class="num">01</span></span>
+          <h3 class="card-title" data-i18n="svc1_h">Monitoria e Avaliação (M&amp;A)</h3>
+          <p class="card-text" data-i18n="svc1_p">Criamos evidências sólidas para a tomada de decisão estratégica. Desenvolvemos indicadores, frameworks de acompanhamento, avaliações de linha de base e estudos de impacto que sustentam as melhores decisões programáticas.</p>
+          <div class="tags" style="margin-top:auto;padding-top:8px"><span class="tag">RCTs</span><span class="tag">DQA</span><span class="tag" data-i18n="tag_ind">Indicadores</span><span class="tag" data-i18n="tag_lb">Linha de Base</span></div>
+        </div>
+      </article>
+      <article class="card svc-card is-hoverable reveal" id="svc-2">
+        <div class="card-media" role="img" aria-label="Recolha de Dados CAPI" style="background-image:url('img/svc-capi.jpg')"></div>
+        <div class="card-body">
+          <span class="theme-card"><span class="num">02</span></span>
+          <h3 class="card-title" data-i18n="svc2_h">Recolha de Dados de Grande Escala (CAPI)</h3>
+          <p class="card-text" data-i18n="svc2_p">Cobertura em todas as 11 províncias com mais de 600 inquiridores certificados e multilíngues. Utilizamos plataformas digitais avançadas de recolha assistida por computador para garantir dados precisos em tempo real.</p>
+          <div class="tags" style="margin-top:auto;padding-top:8px"><span class="tag">CAPI</span><span class="tag">Mobile Data</span><span class="tag" data-i18n="tag_nac">Nacional</span></div>
+        </div>
+      </article>
+      <article class="card svc-card is-hoverable reveal" id="svc-3">
+        <div class="card-media" role="img" aria-label="Pesquisa em Saúde" style="background-image:url('img/svc-saude.jpg')"></div>
+        <div class="card-body">
+          <span class="theme-card"><span class="num">03</span></span>
+          <h3 class="card-title" data-i18n="svc3_h">Pesquisa em Saúde e Estudos Socioeconómicos</h3>
+          <p class="card-text" data-i18n="svc3_p">Especialistas em inquéritos demográficos, saúde pública, malária, imunização e inclusão financeira. Aplicamos metodologias avançadas como LQAS, estudos longitudinais e análise estatística de alta performance.</p>
+          <div class="tags" style="margin-top:auto;padding-top:8px"><span class="tag">LQAS</span><span class="tag" data-i18n="tag_mal">Malária</span><span class="tag">Longitudinal</span><span class="tag" data-i18n="tag_sp">Saúde Pública</span></div>
+        </div>
+      </article>
+      <article class="card svc-card is-hoverable reveal" id="svc-4">
+        <div class="card-media" role="img" aria-label="Sistemas de Informação" style="background-image:url('img/svc-software.jpg')"></div>
+        <div class="card-body">
+          <span class="theme-card"><span class="num">04</span></span>
+          <h3 class="card-title" data-i18n="svc4_h">Sistemas de Informação e Análise</h3>
+          <p class="card-text" data-i18n="svc4_p">Modernizamos a gestão de dados institucionais com soluções customizadas: análise estatística avançada, sistemas de informação geográfica, bases de dados online e dashboards de visualização em tempo real.</p>
+          <div class="tags" style="margin-top:auto;padding-top:8px"><span class="tag" data-i18n="tag_est">Estatística</span><span class="tag">GIS</span><span class="tag">Dashboard</span><span class="tag" data-i18n="tag_qual">Qualitativo</span></div>
+        </div>
+      </article>
+    </div>
+    <div class="quality-strip">
+      <div class="qa-card reveal"><h3 data-i18n="q1_h">Monitoria 24/7</h3><p data-i18n="q1_p">Integridade de dados na nuvem com disponibilidade constante e sistemas de alerta automáticos.</p></div>
+      <div class="qa-card reveal"><h3 data-i18n="q2_h">Verificação Rigorosa</h3><p data-i18n="q2_p">High Frequency Checks, auditoria de áudio, georreferenciação GPS e fotos de verificação em cada entrevista.</p></div>
+      <div class="qa-card reveal"><h3 data-i18n="q3_h">Helpdesk Especializado</h3><p data-i18n="q3_p">Suporte técnico contínuo do inquiridor em campo ao coordenador nacional.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CAMPO ══════════════════════════════════════════════════ -->
+<section id="campo" class="section">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow" data-i18n="campo_label">Trabalho de Campo</span>
+        <h2 class="section-title" data-i18n-html="campo_h2">Da aldeia remota à <em>análise avançada</em></h2>
+        <p class="section-lead" data-i18n="campo_lead">A nossa equipa chega onde é necessário — de canoa, a pé ou de moto — para garantir que cada voz seja registada com rigor e respeito.</p>
+      </div>
+    </div>
+    <div class="gallery-grid" id="gallery">
+      <figure class="gallery-item reveal"><button type="button"><div class="ph-wrap"><img class="ph" src="img/gallery-1.jpg" alt="Equipa de inquiridores certificados" loading="lazy"></div></button><figcaption data-i18n="g1">Equipa de inquiridores certificados</figcaption></figure>
+      <figure class="gallery-item reveal"><button type="button"><div class="ph-wrap"><img class="ph" src="img/gallery-2.jpg" alt="Entrevista CAPI com smartphone" loading="lazy"></div></button><figcaption data-i18n="g2">Entrevista CAPI com tecnologia digital</figcaption></figure>
+      <figure class="gallery-item reveal"><button type="button"><div class="ph-wrap"><img class="ph" src="img/gallery-3.jpg" alt="Grupo focal em zona rural" loading="lazy"></div></button><figcaption data-i18n="g3">Grupo focal em comunidade rural</figcaption></figure>
+      <figure class="gallery-item reveal"><button type="button"><div class="ph-wrap"><img class="ph" src="img/gallery-4.jpg" alt="Equipa a embarcar em barco" loading="lazy"></div></button><figcaption data-i18n="g4">Acesso a comunidades ribeirinhas</figcaption></figure>
+      <figure class="gallery-item reveal"><button type="button"><div class="ph-wrap"><img class="ph" src="img/gallery-5.jpg" alt="Formação de equipa de campo" loading="lazy"></div></button><figcaption data-i18n="g5">Formação de equipa de campo</figcaption></figure>
+      <figure class="gallery-item reveal"><button type="button"><div class="ph-wrap"><img class="ph" src="img/gallery-6.jpg" alt="Equipa no barco" loading="lazy"></div></button><figcaption data-i18n="g6">Acesso fluvial a zonas remotas</figcaption></figure>
+      <figure class="gallery-item reveal"><button type="button"><div class="ph-wrap"><img class="ph" src="img/gallery-7.jpg" alt="Inquiridores em zona costeira" loading="lazy"></div></button><figcaption data-i18n="g7">Inquéritos em zona costeira</figcaption></figure>
+      <figure class="gallery-item reveal"><button type="button"><div class="ph-wrap"><img class="ph" src="img/gallery-8.jpg" alt="Entrevista com telemóvel" loading="lazy"></div></button><figcaption data-i18n="g8">Recolha de dados digital</figcaption></figure>
+      <figure class="gallery-item reveal"><button type="button"><div class="ph-wrap"><img class="ph" src="img/gallery-9.jpg" alt="Campo em zona montanhosa" loading="lazy"></div></button><figcaption data-i18n="g9">Zonas de difícil acesso</figcaption></figure>
+      <figure class="gallery-item reveal"><button type="button"><div class="ph-wrap"><img class="ph" src="img/gallery-10.jpg" alt="Entrevista domiciliar" loading="lazy"></div></button><figcaption data-i18n="g10">Entrevista domiciliar</figcaption></figure>
+      <figure class="gallery-item reveal"><button type="button"><div class="ph-wrap"><img class="ph" src="img/gallery-11.jpg" alt="Formação de equipa" loading="lazy"></div></button><figcaption data-i18n="g11">Formação e capacitação</figcaption></figure>
+      <figure class="gallery-item reveal"><button type="button"><div class="ph-wrap"><img class="ph" src="img/gallery-12.jpg" alt="Análise de dados" loading="lazy"></div></button><figcaption data-i18n="g12">Análise de dados em tempo real</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Galeria">
+  <button class="lb-btn lb-close" type="button" id="lb-close" aria-label="Fechar"><span data-icon="close"></span></button>
+  <button class="lb-btn lb-prev" type="button" id="lb-prev" aria-label="Anterior"><span data-icon="left"></span></button>
+  <figure><img id="lightbox-img" src="" alt=""><figcaption id="lightbox-cap"></figcaption></figure>
+  <button class="lb-btn lb-next" type="button" id="lb-next" aria-label="Seguinte"><span data-icon="right"></span></button>
+  <div class="lb-counter" id="lb-counter">1 / 12</div>
+</div>
+
+<!-- ═══ PORTFÓLIO ══════════════════════════════════════════════ -->
+<section id="portfolio" class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow" data-i18n="port_label">Portfólio</span>
+        <h2 class="section-title" data-i18n-html="port_h2">Experiência que <em>gera impacto</em> real</h2>
+        <p class="section-lead" data-i18n="port_lead">Um histórico sólido na execução de projectos complexos, entregando dados precisos que orientam políticas públicas e intervenções humanitárias.</p>
+      </div>
+    </div>
+    <div class="stats-grid stat-cards grid" style="margin-bottom:48px">
+      <div class="stat"><div class="stat-bar"></div><div class="stat-n">+40.000</div><div class="stat-l" data-i18n="stat1_l">Entrevistas realizadas</div></div>
+      <div class="stat"><div class="stat-bar"></div><div class="stat-n">12</div><div class="stat-l" data-i18n="stat2_l">Projectos estratégicos 2023–2025</div></div>
+      <div class="stat"><div class="stat-bar"></div><div class="stat-n">97%</div><div class="stat-l" data-i18n="stat3_l">Taxa média de resposta</div></div>
+      <div class="stat"><div class="stat-bar"></div><div class="stat-n">11</div><div class="stat-l" data-i18n="stat4_l">Províncias cobertas simultaneamente</div></div>
+    </div>
+    <div class="grid grid-3">
+      <article class="card proj-card is-hoverable reveal"><div class="card-body"><div class="card-meta"><span>2025</span><span class="dot-sep"></span><span data-i18n="pa_fin">Inclusão Financeira</span></div><h3 class="card-title" data-i18n="p1_h">Inquérito FinScope MSME</h3><p class="card-text" data-i18n="p1_p">4.121 entrevistas para avaliar o acesso a serviços financeiros por micro, pequenas e médias empresas em Moçambique.</p><div class="card-foot"><span><span data-i18n="client">Cliente</span>: FSDMoç</span></div></div></article>
+      <article class="card proj-card is-hoverable reveal"><div class="card-body"><div class="card-meta"><span>2025</span><span class="dot-sep"></span><span data-i18n="pa_mal">Saúde Pública · Malária</span></div><h3 class="card-title" data-i18n="p2_h">Avaliação QSM Niassa</h3><p class="card-text" data-i18n="p2_p">Digitalização da Campanha de Quimioprevenção Sazonal da Malária com 22.028 entrevistas registadas em Niassa.</p><div class="card-foot"><span><span data-i18n="client">Cliente</span>: <span data-i18n="harvard">Universidade de Harvard</span> / ADPP</span></div></div></article>
+      <article class="card proj-card is-hoverable reveal"><div class="card-body"><div class="card-meta"><span>2024</span><span class="dot-sep"></span><span data-i18n="pa_mal">Saúde Pública · Malária</span></div><h3 class="card-title" data-i18n="p3_h">Cobertura de Redes Tratadas</h3><p class="card-text" data-i18n="p3_p">Inquérito sobre a Campanha de Cobertura Universal em Zambézia e Sofala, abrangendo +3.100 agregados familiares.</p><div class="card-foot"><span><span data-i18n="client">Cliente</span>: MISAU / PNCM</span></div></div></article>
+      <article class="card proj-card is-hoverable reveal"><div class="card-body"><div class="card-meta"><span>2024</span><span class="dot-sep"></span><span data-i18n="pa_dhis">Digitalização DHIS2</span></div><h3 class="card-title" data-i18n="p4_h">Performance de Ferramentas Digitais</h3><p class="card-text" data-i18n="p4_p">Estudo qualitativo sobre ferramentas digitais na distribuição de redes em Gaza e Inhambane. Financiado pela CHAI.</p><div class="card-foot"><span><span data-i18n="client">Cliente</span>: MISAU / PNCM (CHAI)</span></div></div></article>
+      <article class="card proj-card is-hoverable reveal"><div class="card-body"><div class="card-meta"><span>2023</span><span class="dot-sep"></span><span data-i18n="pa_gov">Governação · Cidadania</span></div><h3 class="card-title" data-i18n="p5_h">Índice de Satisfação do Cidadão</h3><p class="card-text" data-i18n="p5_p">7.000 agregados familiares em todo o país para medir satisfação com serviços públicos e percepção da corrupção.</p><div class="card-foot"><span><span data-i18n="client">Cliente</span>: MAEFP / <span data-i18n="pnud">PNUD</span></span></div></div></article>
+      <article class="card proj-card is-hoverable reveal"><div class="card-body"><div class="card-meta"><span>2023</span><span class="dot-sep"></span><span data-i18n="pa_com">Desenvolvimento Comunitário</span></div><h3 class="card-title" data-i18n="p6_h">Avaliação Final COESO II</h3><p class="card-text" data-i18n="p6_p">Estudo de impacto focado em desenvolvimento comunitário e resiliência social em comunidades moçambicanas.</p><div class="card-foot"><span><span data-i18n="client">Cliente</span>: <span data-i18n="fjc">Fundação Joaquim Chissano</span></span></div></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PARCEIROS & TESTEMUNHOS ════════════════════════════════ -->
+<section id="parceiros" class="section">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow" data-i18n="parc_label">Parceiros &amp; Recomendações</span>
+        <h2 class="section-title" data-i18n-html="parc_h2">Confiados por <em>líderes</em> globais e nacionais</h2>
+      </div>
+      <div class="filter-bar" role="group" aria-label="Filtro de parceiros" style="margin:0">
+        <button class="filter-btn" type="button" data-partners="all" aria-pressed="true" data-i18n="tab_all">Todos</button>
+        <button class="filter-btn" type="button" data-partners="intl" aria-pressed="false" data-i18n="tab_intl">Internacionais</button>
+        <button class="filter-btn" type="button" data-partners="nat" aria-pressed="false" data-i18n="tab_nat">Nacionais</button>
+      </div>
+    </div>
+    <div class="partner-grid cols-6" id="partnersGrid">
+      <div class="partner" data-type="intl"><img src="img/partners/harvard.png" alt="" loading="lazy"><span class="p-name" data-i18n="harvard">Universidade de Harvard</span></div>
+      <div class="partner" data-type="intl"><img src="img/partners/pnud.jpg" alt="" loading="lazy"><span class="p-name" data-i18n="pnud">PNUD</span></div>
+      <div class="partner" data-type="intl"><img src="img/partners/unicef.png" alt="" loading="lazy"><span class="p-name">UNICEF</span></div>
+      <div class="partner" data-type="intl"><img src="img/partners/giz.png" alt="" loading="lazy"><span class="p-name">GIZ</span></div>
+      <div class="partner" data-type="intl"><img src="img/partners/chai.png" alt="" loading="lazy"><span class="p-name">CHAI — Clinton Health Access Initiative</span></div>
+      <div class="partner" data-type="intl"><img src="img/partners/fsdmoc.jpg" alt="" loading="lazy"><span class="p-name">FSDMoç</span></div>
+      <div class="partner" data-type="nat"><img src="img/partners/misau.png" alt="" loading="lazy"><span class="p-name" data-i18n="misau">Ministério da Saúde (MISAU)</span></div>
+      <div class="partner" data-type="nat"><img src="img/partners/maefp.png" alt="" loading="lazy"><span class="p-name" data-i18n="maefp">Ministério da Administração Estatal e Função Pública (MAEFP)</span></div>
+      <div class="partner" data-type="nat"><img src="img/partners/adpp.png" alt="" loading="lazy"><span class="p-name">ADPP Moçambique</span></div>
+      <div class="partner" data-type="nat"><div class="p-fallback">FJC</div><span class="p-name" data-i18n="fjc">Fundação Joaquim Chissano</span></div>
+      <div class="partner" data-type="nat"><img src="img/partners/pncm.jpg" alt="" loading="lazy"><span class="p-name" data-i18n="pncm">Programa Nacional de Controlo da Malária (PNCM)</span></div>
+    </div>
+
+    <div class="testimonials">
+      <div class="section-head" style="margin-bottom:32px">
+        <div>
+          <h2 class="section-title" style="margin-top:0" data-i18n="test_h3">O que dizem os nossos parceiros</h2>
+          <p class="section-lead" data-i18n="test_p">Feedback de organizações que confiaram na Celinka Survey para os seus projectos mais críticos.</p>
+        </div>
+        <div class="t-nav">
+          <button type="button" id="t-prev" aria-label="Anterior"><span data-icon="left"></span></button>
+          <button type="button" id="t-next" aria-label="Seguinte"><span data-icon="right"></span></button>
+        </div>
+      </div>
+      <div class="t-viewport">
+        <div class="t-track" id="testimonialTrack">
+          <figure class="quote-card"><span data-icon="quote"></span><blockquote data-i18n="t1">A Celinka Survey demonstrou uma capacidade operacional excepcional na implementação do inquérito de cobertura de redes mosquiteiras. A qualidade dos dados e a taxa de resposta de 97% superaram todas as expectativas, sendo determinantes para as nossas decisões programáticas.</blockquote><div class="t-author"><span class="t-avatar">PM</span><div><strong data-i18n="t1_n">Gestora de Programa</strong><span data-i18n="t1_r">MISAU / Programa Nacional de Controlo da Malária</span></div></div></figure>
+          <figure class="quote-card"><span data-icon="quote"></span><blockquote data-i18n="t2">A implementação do inquérito de satisfação do cidadão com 7.000 agregados familiares em todo o país foi executada com rigor metodológico e eficiência logística notáveis. A Celinka Survey é um parceiro de confiança para avaliações de grande envergadura.</blockquote><div class="t-author"><span class="t-avatar">TC</span><div><strong data-i18n="t2_n">Técnico de Cooperação</strong><span data-i18n="t2_r">PNUD Moçambique</span></div></div></figure>
+          <figure class="quote-card"><span data-icon="quote"></span><blockquote data-i18n="t3">O que distingue a Celinka Survey é a capacidade de chegar a comunidades de difícil acesso com equipas treinadas, mantendo os mais altos padrões de qualidade. A georreferenciação e auditoria de áudio garantem confiança total nos resultados.</blockquote><div class="t-author"><span class="t-avatar">RP</span><div><strong>Research Partner</strong><span data-i18n="t3_r">Universidade de Harvard — ADPP Moçambique</span></div></div></figure>
+          <figure class="quote-card"><span data-icon="quote"></span><blockquote data-i18n="t4">A experiência com o inquérito FinScope MSME demonstrou uma equipa altamente profissional, com capacidade de mobilização rápida em múltiplas províncias simultaneamente. Recomendamos fortemente a Celinka Survey.</blockquote><div class="t-author"><span class="t-avatar">FD</span><div><strong data-i18n="t4_n">Directora de Programas</strong><span>FSDMoç — Financial Sector Deepening</span></div></div></figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TECNOLOGIA ═════════════════════════════════════════════ -->
+<section id="tecnologia" class="section section-dark">
+  <div class="container tech-grid">
+    <div class="prose-dark">
+      <span class="eyebrow" data-i18n="tech_label">Tecnologia</span>
+      <h2 class="section-title" data-i18n-html="tech_h2">Tecnologia que <em>garante</em> cada dado</h2>
+      <p data-i18n="tech_p1">O nosso diferencial é a combinação de alcance operacional massivo com controlo de qualidade tecnológico rigoroso, operando em tempo real desde o campo até ao relatório final.</p>
+      <p data-i18n="tech_p2">Cada entrevista é monitorizada, verificada e validada antes de entrar na base de dados final. Não aceitamos dados sem rastreabilidade completa.</p>
+      <div class="tech-feats">
+        <div class="tech-feat"><span class="feature-icon" data-icon="gps"></span><div><strong data-i18n="tf1_t">Georreferenciação por GPS</strong><span data-i18n="tf1_d">Coordenadas GPS em cada entrevista para verificar localização exacta e detectar anomalias geográficas.</span></div></div>
+        <div class="tech-feat"><span class="feature-icon" data-icon="camera"></span><div><strong data-i18n="tf2_t">Fotos de Verificação</strong><span data-i18n="tf2_d">Fotografias automáticas do agregado familiar confirmam a autenticidade de cada entrevista realizada.</span></div></div>
+        <div class="tech-feat"><span class="feature-icon" data-icon="audio"></span><div><strong data-i18n="tf3_t">Auditoria de Áudio</strong><span data-i18n="tf3_d">Gravações aleatórias revisadas pelos supervisores para garantir a qualidade do processo de recolha.</span></div></div>
+        <div class="tech-feat"><span class="feature-icon" data-icon="pulse"></span><div><strong>High Frequency Checks</strong><span data-i18n="tf4_d">Validações automáticas em tempo real identificam inconsistências e outliers no mesmo dia de campo.</span></div></div>
+      </div>
+    </div>
+    <div class="software-grid">
+      <div class="sw-card"><span class="feature-icon" data-icon="chart"></span><div class="sw-name" data-i18n="sw1_n">Análise Estatística</div><div class="sw-desc" data-i18n="sw1_d">Software profissional de alta performance</div></div>
+      <div class="sw-card"><span class="feature-icon" data-icon="bars"></span><div class="sw-name">Data Analytics</div><div class="sw-desc" data-i18n="sw2_d">Análise quantitativa avançada</div></div>
+      <div class="sw-card"><span class="feature-icon" data-icon="map"></span><div class="sw-name">GIS &amp; Mapping</div><div class="sw-desc" data-i18n="sw3_d">Análise espacial e mapeamento</div></div>
+      <div class="sw-card"><span class="feature-icon" data-icon="mobile"></span><div class="sw-name" data-i18n="sw4_n">Recolha Digital</div><div class="sw-desc" data-i18n="sw4_d">Plataformas CAPI de última geração</div></div>
+      <div class="sw-card"><span class="feature-icon" data-icon="micro"></span><div class="sw-name" data-i18n="sw5_n">Epidemiologia</div><div class="sw-desc" data-i18n="sw5_d">Análise de dados de saúde</div></div>
+      <div class="sw-card"><span class="feature-icon" data-icon="chat"></span><div class="sw-name" data-i18n="sw6_n">Qualitativo</div><div class="sw-desc" data-i18n="sw6_d">Análise de dados qualitativos</div></div>
+      <div class="sw-card"><span class="feature-icon" data-icon="cloud"></span><div class="sw-name">Cloud &amp; APIs</div><div class="sw-desc" data-i18n="sw7_d">Integração e armazenamento</div></div>
+      <div class="sw-card"><span class="feature-icon" data-icon="antenna"></span><div class="sw-name">Open-Source</div><div class="sw-desc" data-i18n="sw8_d">Ferramentas open data kit</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ NOTÍCIAS ═══════════════════════════════════════════════ -->
+<section id="noticias" class="section">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow" data-i18n="news_label">Notícias &amp; Actualizações</span>
+        <h2 class="section-title" data-i18n-html="news_h2">Últimas <em>novidades</em></h2>
+      </div>
+      <a class="link-arrow" href="#contacto"><span data-i18n="news_all">Fale connosco</span><span data-icon="arrow"></span></a>
+    </div>
+    <div class="grid grid-3">
+      <article class="card is-hoverable reveal"><div class="card-media" style="background-image:url('img/news-1.jpg')"><span class="badge" data-i18n="tag_sp">Saúde Pública</span></div><div class="card-body"><div class="card-meta" data-i18n="n1_d">Março 2025</div><h3 class="card-title" data-i18n="n1_h">Celinka Survey conclui maior levantamento de malária em Niassa com 22.028 entrevistas</h3><p class="card-text" data-i18n="n1_p">Em parceria com a Universidade de Harvard e ADPP, concluímos a maior operação de recolha de dados sobre a Campanha QSM no Niassa.</p><a href="#portfolio" class="link-arrow" style="margin-top:auto"><span data-i18n="read_more">Ler mais</span><span data-icon="arrow"></span></a></div></article>
+      <article class="card is-hoverable reveal"><div class="card-media" style="background-image:url('img/news-2.jpg')"><span class="badge" data-i18n="pa_fin">Inclusão Financeira</span></div><div class="card-body"><div class="card-meta" data-i18n="n2_d">Fevereiro 2025</div><h3 class="card-title" data-i18n="n2_h">FinScope MSME 2025: dados sobre inclusão financeira entregues ao FSDMoç</h3><p class="card-text" data-i18n="n2_p">O inquérito FinScope MSME, com 4.121 entrevistas a nível nacional, revela o panorama de acesso a serviços financeiros pelas PME moçambicanas.</p><a href="#portfolio" class="link-arrow" style="margin-top:auto"><span data-i18n="read_more">Ler mais</span><span data-icon="arrow"></span></a></div></article>
+      <article class="card is-hoverable reveal"><div class="card-media" style="background-image:url('img/news-3.jpg')"><span class="badge" data-i18n="n3_c">Capacitação</span></div><div class="card-body"><div class="card-meta" data-i18n="n3_d">Outubro 2024</div><h3 class="card-title" data-i18n="n3_h">Celinka Survey capacita nova vaga de inquiridores para os projectos de 2025</h3><p class="card-text" data-i18n="n3_p">Concluída com sucesso a formação de novos inquiridores certificados, reforçando a capacidade operacional nacional para 2025.</p><a href="#carreiras" class="link-arrow" style="margin-top:auto"><span data-i18n="read_more">Ler mais</span><span data-icon="arrow"></span></a></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ HISTÓRIAS ══════════════════════════════════════════════ -->
+<section id="historias" class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow" data-i18n="hist_label">Histórias de Sucesso</span>
+        <h2 class="section-title" data-i18n-html="hist_h2">Impacto real, <em>províncias reais</em></h2>
+      </div>
+    </div>
+    <div class="grid grid-3">
+      <article class="card story-card reveal"><div class="card-media" style="background-image:url('img/story-1.jpg')"><span class="badge badge-blue" data-i18n="s1_tag">Acesso Fluvial · Zambézia</span></div><div class="card-body"><h3 class="card-title" data-i18n="s1_h">Chegar onde outros não chegam</h3><p class="card-text" data-i18n="s1_p">Em 2024, a nossa equipa atravessou rios em canoas para atingir comunidades ribeirinhas isoladas na Zambézia, completando 100% da amostra prevista.</p><div class="story-meta"><span class="prov">Zambézia, Sofala</span><span class="impact" data-i18n="s1_m">3.100+ AF entrevistados</span></div></div></article>
+      <article class="card story-card reveal"><div class="card-media" style="background-image:url('img/story-2.jpg')"><span class="badge badge-blue" data-i18n="s2_tag">Pesquisa Qualitativa · Interior</span></div><div class="card-body"><h3 class="card-title" data-i18n="s2_h">Vozes das comunidades rurais</h3><p class="card-text" data-i18n="s2_p">Os nossos inquiridores, fluentes nas línguas locais, conduziram grupos focais em comunidades rurais, captando perspectivas únicas sobre programas de saúde.</p><div class="story-meta"><span class="prov">Niassa, Nampula</span><span class="impact" data-i18n="s2_m">97% taxa de resposta</span></div></div></article>
+      <article class="card story-card reveal"><div class="card-media" style="background-image:url('img/story-3.jpg')"><span class="badge badge-blue" data-i18n="s3_tag">Análise de Dados · Maputo</span></div><div class="card-body"><h3 class="card-title" data-i18n="s3_h">Dados que orientam políticas nacionais</h3><p class="card-text" data-i18n="s3_p">O Índice de Satisfação do Cidadão (2023), com 7.000 AF entrevistados, forneceu ao MAEFP evidências críticas para a reforma dos serviços públicos.</p><div class="story-meta"><span class="prov" data-i18n="s3_prov">11 Províncias</span><span class="impact" data-i18n="s3_m">7.000 AF · PNUD</span></div></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CARREIRAS ══════════════════════════════════════════════
+     NOTA: Actualize as vagas abaixo com as posições actuais.
+     Cada vaga é um link de email com assunto pré-preenchido.
+════════════════════════════════════════════════════════════════ -->
+<section id="carreiras" class="section">
+  <div class="container careers-layout">
+    <div class="careers-media reveal">
+      <img src="img/carreiras.jpg" alt="Equipa Celinka Survey" loading="lazy">
+      <div class="careers-badge"><div class="cn">+600</div><div class="cl" data-i18n-html="carr_badge">Profissionais<br>na nossa rede</div></div>
+    </div>
+    <div>
+      <span class="eyebrow" data-i18n="carr_label">Trabalhe Connosco</span>
+      <h2 class="section-title" data-i18n-html="carr_h2">Junte-se a uma equipa de <em>impacto</em></h2>
+      <p class="section-lead" data-i18n="carr_lead">Procuramos profissionais comprometidos com a transformação de dados em evidências que melhoram vidas em Moçambique.</p>
+      <div class="openings">
+        <!-- VAGA 1 -->
+        <a class="job-row" href="mailto:info@celinkasurvey.com?subject=Candidatura%3A%20Supervisor%20de%20Campo">
+          <div><h3 data-i18n="j1_h">Supervisor(a) de Campo</h3><div class="meta" data-i18n="j1_m">Zambézia · Projecto de curta duração</div><div class="tags"><span class="tag" data-i18n="tg_sup">Supervisão</span><span class="tag" data-i18n="tg_campo">Campo</span><span class="tag">Zambézia</span></div></div>
+          <span class="arrow" data-icon="arrow"></span>
+        </a>
+        <!-- VAGA 2 -->
+        <a class="job-row" href="mailto:info@celinkasurvey.com?subject=Candidatura%3A%20Inquiridor%20de%20Campo">
+          <div><h3 data-i18n="j2_h">Inquiridor(a) de Campo — CAPI</h3><div class="meta" data-i18n="j2_m">Nampula, Niassa, Cabo Delgado · Por projecto</div><div class="tags"><span class="tag" data-i18n="tg_campo">Campo</span><span class="tag">CAPI</span><span class="tag" data-i18n="tg_norte">Norte</span></div></div>
+          <span class="arrow" data-icon="arrow"></span>
+        </a>
+        <!-- VAGA 3 -->
+        <a class="job-row" href="mailto:info@celinkasurvey.com?subject=Candidatura%3A%20Analista%20de%20Dados">
+          <div><h3 data-i18n="j3_h">Analista de Dados Sénior</h3><div class="meta" data-i18n="j3_m">Maputo · Full-time ou Consultoria</div><div class="tags"><span class="tag" data-i18n="tag_est">Estatística</span><span class="tag">GIS</span><span class="tag" data-i18n="tg_sen">Sénior</span></div></div>
+          <span class="arrow" data-icon="arrow"></span>
+        </a>
+        <!-- VAGA 4 — Candidatura espontânea -->
+        <a class="job-row" href="mailto:info@celinkasurvey.com?subject=Candidatura%20Espont%C3%A2nea">
+          <div><h3 data-i18n="j4_h">Candidatura Espontânea</h3><div class="meta" data-i18n="j4_m">Todas as províncias · Várias áreas</div><div class="tags"><span class="tag" data-i18n="tg_geral">Geral</span><span class="tag" data-i18n="tg_aberta">Aberta</span></div></div>
+          <span class="arrow" data-icon="arrow"></span>
+        </a>
+      </div>
+      <div class="careers-cta">
+        <a href="mailto:info@celinkasurvey.com?subject=Candidatura%20Espont%C3%A2nea" class="btn btn-primary"><span data-i18n="carr_btn">Enviar Candidatura</span><span data-icon="arrow"></span></a>
+        <span data-i18n="carr_sub">ou envie o CV para info@celinkasurvey.com</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Banda CTA -->
+<section class="cta-band">
+  <div class="container">
+    <div><h2 data-i18n="cta_h">Precisa de dados fiáveis para decidir melhor?</h2><p data-i18n="cta_p">Fale com a nossa equipa sobre o seu próximo estudo, avaliação ou operação de recolha de dados.</p></div>
+    <div class="cta-actions"><a class="btn btn-white" href="#contacto"><span data-i18n="nav_contacto">Contactar</span><span data-icon="arrow"></span></a></div>
+  </div>
+</section>
+
+<!-- ═══ CONTACTO ═══════════════════════════════════════════════ -->
+<section id="contacto" class="section">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow" data-i18n="cont_label">Contacto</span>
+        <h2 class="section-title" data-i18n-html="cont_h2">Pronto para <em>colaborar</em> connosco?</h2>
+        <p class="section-lead" data-i18n="cont_lead">A nossa equipa responde em até 24 horas úteis.</p>
+      </div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-intro">
+        <h3 data-i18n="cont_info_h">Fale Connosco</h3>
+        <p data-i18n="cont_info_p">Sede em Maputo com capacidade de actuação imediata em todo o território nacional.</p>
+        <div class="contact-item"><span class="ci-icon" data-icon="pin"></span><div><small data-i18n="c_sede">Sede</small><span>Avenida Julius Nyerere N.º 562, 1º Andar<br>Polana Cimento, Cidade de Maputo<br>República de Moçambique</span></div></div>
+        <div class="contact-item"><span class="ci-icon" data-icon="phone"></span><div><small data-i18n="c_tel">Telefone</small><a href="tel:+258847904373">+258 847 904 373</a><a href="tel:+258873904373">+258 873 904 373</a></div></div>
+        <div class="contact-item"><span class="ci-icon" data-icon="mail"></span><div><small>Email</small><a href="mailto:info@celinkasurvey.com">info@celinkasurvey.com</a><a href="mailto:n.cossa@celinkasurvey.com">n.cossa@celinkasurvey.com</a></div></div>
+        <div class="contact-item"><span class="ci-icon" data-icon="globe"></span><div><small>Website</small><a href="https://www.celinkasurvey.com" target="_blank" rel="noopener">www.celinkasurvey.com</a></div></div>
+      </div>
+      <form class="form-card" id="contact-form" novalidate>
+        <h2 data-i18n="cont_form_h">Envie-nos uma Mensagem</h2>
+        <div class="form-grid">
+          <div class="field"><label for="contact-nome"><span data-i18n="form_nome">Nome Completo</span> *</label><input type="text" id="contact-nome" name="nome" required autocomplete="name" data-i18n-ph="form_ph_nome" placeholder="O seu nome"></div>
+          <div class="field"><label for="contact-org" data-i18n="form_org">Organização</label><input type="text" id="contact-org" name="organizacao" autocomplete="organization" data-i18n-ph="form_ph_org" placeholder="Nome da organização"></div>
+          <div class="field full"><label for="contact-email">Email *</label><input type="email" id="contact-email" name="email" required autocomplete="email" placeholder="email@organizacao.com"></div>
+          <div class="field full">
+            <label for="contact-servico" data-i18n="form_svc">Tipo de Serviço</label>
+            <select id="contact-servico" name="servico">
+              <option value="" data-i18n="opt0">Seleccione um serviço...</option>
+              <option data-i18n="opt1">Monitoria e Avaliação (M&amp;A)</option>
+              <option data-i18n="opt2">Recolha de Dados CAPI</option>
+              <option data-i18n="opt3">Pesquisa em Saúde / Socioeconómica</option>
+              <option data-i18n="opt4">Sistemas de Informação e Análise</option>
+              <option data-i18n="opt5">Avaliação de Impacto / Linha de Base</option>
+              <option data-i18n="opt6">Candidatura — Trabalhe Connosco</option>
+              <option data-i18n="opt7">Outro / Informações Gerais</option>
+            </select>
+          </div>
+          <div class="field full"><label for="contact-msg"><span data-i18n="form_msg">Mensagem</span> *</label><textarea id="contact-msg" name="mensagem" required data-i18n-ph="form_ph_msg" placeholder="Descreva o seu projecto, objectivos e prazo estimado..."></textarea></div>
+          <div class="full">
+            <button class="btn btn-primary" type="submit" id="contact-submit"><span data-i18n="cont_send">Enviar Mensagem</span><span data-icon="arrow"></span></button>
+            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══ RODAPÉ ═════════════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="container footer-top">
+    <div>
+      <a class="footer-logo" href="#hero"><img src="img/logo-celinka.png" alt="Celinka Survey"></a>
+      <p class="footer-blurb" data-i18n="footer_p">Dados e Soluções para o Desenvolvimento Sustentável. Pesquisa estatística rigorosa, monitoria e avaliação de impacto em Moçambique desde 2021.</p>
+      <div class="footer-badges"><span data-i18n="chip1">97% Taxa Resposta</span><span>CAPI Certified</span><span data-i18n="chip3">+40k Entrevistas</span></div>
+    </div>
+    <div class="footer-col">
+      <h3 data-i18n="f_nav">Navegação</h3>
+      <ul>
+        <li><a href="#sobre" data-i18n="nav_sobre">Sobre Nós</a></li>
+        <li><a href="#servicos" data-i18n="nav_servicos">Serviços</a></li>
+        <li><a href="#campo" data-i18n="campo_label">Trabalho de Campo</a></li>
+        <li><a href="#portfolio" data-i18n="nav_portfolio">Portfólio</a></li>
+        <li><a href="#noticias" data-i18n="nav_noticias">Notícias</a></li>
+        <li><a href="#historias" data-i18n="nav_historias">Histórias de Sucesso</a></li>
+        <li><a href="#carreiras" data-i18n="carr_label">Trabalhe Connosco</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3 data-i18n="nav_servicos">Serviços</h3>
+      <ul>
+        <li><a href="#svc-1" data-i18n="f_s1">Monitoria e Avaliação</a></li>
+        <li><a href="#svc-2" data-i18n="f_s2">Recolha Dados CAPI</a></li>
+        <li><a href="#svc-3" data-i18n="f_s3">Pesquisa em Saúde</a></li>
+        <li><a href="#svc-4" data-i18n="f_s4">Sistemas de Informação</a></li>
+        <li><a href="#tecnologia" data-i18n="f_s5">Tecnologia GPS/Áudio</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3 data-i18n="f_cont">Contactos</h3>
+      <ul>
+        <li><a href="mailto:info@celinkasurvey.com">info@celinkasurvey.com</a></li>
+        <li><a href="mailto:n.cossa@celinkasurvey.com">n.cossa@celinkasurvey.com</a></li>
+        <li><a href="tel:+258847904373">+258 847 904 373</a></li>
+        <li><a href="tel:+258873904373">+258 873 904 373</a></li>
+        <li><a href="https://www.celinkasurvey.com" target="_blank" rel="noopener">celinkasurvey.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <span>© <span id="year">2025</span> Celinka Survey Consulting &amp; Services Lda. · Av. Julius Nyerere N.º 562, Polana Cimento, Maputo</span>
+      <span><span data-i18n="footer_note">Orgulhosamente moçambicano</span> · <a href="mailto:info@celinkasurvey.com" style="color:inherit">info@celinkasurvey.com</a></span>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" type="button" id="back-to-top" aria-label="Voltar ao topo"><span data-icon="up"></span></button>
+
+<script src="js/main.js"></script>
 </body>
 </html>
