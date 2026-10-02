@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ArrowRight, Info } from "lucide-react";
 import { PageHero } from "@/components/Section";
-import { JOBS, SITE, mailto } from "@/lib/data";
+import { JOBS, PHOTOS, SITE, mailto } from "@/lib/data";
 
 export const metadata: Metadata = { title: "Carreiras", description: "Junte-se a uma equipa de impacto: vagas de supervisão, inquirição e análise de dados." };
 
@@ -16,6 +16,9 @@ export default function Carreiras() {
       />
       <section className="py-16 sm:py-20">
         <div className="container-x max-w-4xl">
+          <figure className="mb-10 overflow-hidden rounded-3xl">
+            <img src={PHOTOS.rio.src} width={PHOTOS.rio.width} height={PHOTOS.rio.height} alt={PHOTOS.rio.alt} className="aspect-[16/9] w-full object-cover object-bottom" />
+          </figure>
           <p className="flex gap-4 rounded-xl border-l-4 border-accent bg-accent-tint p-5 text-ink"><Info aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-accent-ink" /><span>A Celinka Survey não cobra qualquer valor em nenhuma fase do processo de recrutamento.</span></p>
           <ul className="mt-10 space-y-4">
             {JOBS.map((j) => (

@@ -431,3 +431,11 @@ export function mailto(subject: string, body = "") {
   if (body) q.push(`body=${encodeURIComponent(body)}`);
   return `mailto:${SITE.email}?${q.join("&")}`;
 }
+
+/** Fotografias de campo da equipa (public/photos). */
+export const PHOTOS = {
+  chemba: { src: "/photos/campo-chemba.jpg", width: 960, height: 1276, alt: "Inquiridora da Celinka Survey sorri junto à placa do distrito de Chemba", caption: "À entrada do distrito de Chemba" },
+  chambeluca: { src: "/photos/campo-chambeluca.jpg", width: 720, height: 1280, alt: "Inquiridora regista a localização com o telemóvel numa aldeia de Chambeluca, Tete", caption: "Registo de localização em Chambeluca, Tete" },
+  natemba: { src: "/photos/campo-natemba.jpg", width: 472, height: 960, alt: "Inquiridora de boné e mochila junto à placa de madeira que indica Natemba", caption: "A caminho de Natemba" },
+  rio: { src: "/photos/equipa-rio.jpg", width: 1280, height: 960, alt: "Duas inquiridoras com cartão de identificação sentadas junto ao rio, rodeadas de mangal", caption: "Inquiridoras numa pausa junto ao rio" },
+} as const;

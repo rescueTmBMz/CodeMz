@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { PageHero, SectionHeading } from "@/components/Section";
 import { Icon } from "@/components/Icons";
 import { CtaBand } from "@/components/CtaBand";
-import { QUALITY, SERVICES } from "@/lib/data";
+import { PHOTOS, QUALITY, SERVICES } from "@/lib/data";
 
 export const metadata: Metadata = { title: "O Que Fazemos", description: "Monitoria e avaliação, inquéritos CAPI, monitoria de terceira parte, desenvolvimento institucional, pesquisa em saúde e sistemas de informação." };
 
@@ -23,11 +23,17 @@ export default function Servicos() {
       <section className="container-x">
         {SERVICES.map((s, i) => (
           <article key={s.id} id={s.id} className="grid scroll-mt-28 items-center gap-10 border-b border-line py-16 last:border-0 lg:grid-cols-2 lg:gap-20">
-            <div className={`relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-3xl bg-navy-900 ${i % 2 ? "lg:order-2" : ""}`} aria-hidden="true">
-              <span data-n={String(i + 1).padStart(2, "0")} className="absolute left-6 top-4 font-display text-7xl font-extrabold text-white/10 before:content-[attr(data-n)]" />
-              <div className="absolute -bottom-16 -right-16 h-64 w-64 rounded-full bg-accent/25 blur-3xl" />
-              <span className="relative flex h-28 w-28 items-center justify-center rounded-3xl bg-white/10 text-accent-light ring-1 ring-white/20 backdrop-blur"><Icon name={s.icon} className="h-14 w-14" strokeWidth={1.5} /></span>
-            </div>
+            {s.id === "inqueritos" ? (
+              <div className={`overflow-hidden rounded-3xl ${i % 2 ? "lg:order-2" : ""}`}>
+                <img src={PHOTOS.chambeluca.src} width={PHOTOS.chambeluca.width} height={PHOTOS.chambeluca.height} alt={PHOTOS.chambeluca.alt} loading="lazy" className="aspect-[4/3] w-full object-cover object-[50%_22%]" />
+              </div>
+            ) : (
+              <div className={`relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-3xl bg-navy-900 ${i % 2 ? "lg:order-2" : ""}`} aria-hidden="true">
+                <span data-n={String(i + 1).padStart(2, "0")} className="absolute left-6 top-4 font-display text-7xl font-extrabold text-white/10 before:content-[attr(data-n)]" />
+                <div className="absolute -bottom-16 -right-16 h-64 w-64 rounded-full bg-accent/25 blur-3xl" />
+                <span className="relative flex h-28 w-28 items-center justify-center rounded-3xl bg-white/10 text-accent-light ring-1 ring-white/20 backdrop-blur"><Icon name={s.icon} className="h-14 w-14" strokeWidth={1.5} /></span>
+              </div>
+            )}
             <div>
               <span className="eyebrow">Serviço {String(i + 1).padStart(2, "0")}</span>
               <h2 className="mt-4 text-3xl font-extrabold sm:text-4xl">{s.title}</h2>

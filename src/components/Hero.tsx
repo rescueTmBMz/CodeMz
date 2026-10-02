@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, MapPin } from "lucide-react";
+import { PHOTOS } from "@/lib/data";
 
 export function Hero() {
   return (
@@ -13,17 +14,9 @@ export function Hero() {
         </defs>
         <rect width="1440" height="760" fill="url(#hgrid)" />
         <rect width="1440" height="760" fill="url(#hglow)" />
-        <g fill="url(#hbar)">
-          <rect x="860" y="470" width="86" height="290" rx="6" />
-          <rect x="976" y="360" width="86" height="400" rx="6" />
-          <rect x="1092" y="250" width="86" height="510" rx="6" />
-          <rect x="1208" y="150" width="86" height="610" rx="6" />
-        </g>
-        <path d="M820 560 L960 440 L1070 500 L1260 250" fill="none" stroke="#1e9e58" strokeOpacity="0.9" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M1225 240 L1262 248 L1250 285" fill="none" stroke="#1e9e58" strokeOpacity="0.9" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
 
-      <div className="container-x grid gap-12 py-20 sm:py-24 lg:grid-cols-[1.25fr_0.75fr] lg:items-center lg:py-28">
+      <div className="container-x grid gap-12 pb-24 pt-16 sm:pb-28 sm:pt-20 lg:grid-cols-[1.2fr_0.8fr] lg:items-center lg:py-28">
         <div className="rise">
           <p className="inline-flex items-center gap-2 rounded-full border border-white/25 px-4 py-1.5 text-sm font-medium text-accent-light">
             <MapPin aria-hidden="true" className="h-4 w-4" /> Maputo, Moçambique · Desde 2021
@@ -40,20 +33,25 @@ export function Hero() {
           </div>
         </div>
 
-        <aside aria-label="Destaques" className="glass drift rounded-3xl p-7 shadow-lift sm:p-8">
-          <p className="text-xs font-bold uppercase tracking-[0.16em] text-accent-light">Em resumo</p>
-          <ul className="mt-5 space-y-6">
-            {[["97%", "taxa média de resposta"], ["+600", "inquiridores certificados"], ["11", "províncias cobertas em simultâneo"]].map(([n, l]) => (
-              <li key={l} className="flex items-baseline gap-4">
-                <span className="font-display text-4xl font-extrabold text-white">{n}</span>
-                <span className="text-white/80">{l}</span>
-              </li>
-            ))}
-          </ul>
-          <p className="mt-7 border-t border-white/20 pt-5 text-sm leading-relaxed text-white/75">
-            Cada entrevista é monitorizada, verificada e validada antes de entrar na base de dados final.
-          </p>
-        </aside>
+        <div className="relative mx-auto w-full max-w-md lg:max-w-none">
+          <div className="overflow-hidden rounded-3xl ring-1 ring-white/20 shadow-lift">
+            <img
+              src={PHOTOS.chemba.src} width={PHOTOS.chemba.width} height={PHOTOS.chemba.height} alt={PHOTOS.chemba.alt}
+              fetchPriority="high" className="aspect-[4/5] w-full object-cover object-top lg:max-h-[34rem]"
+            />
+          </div>
+          <aside aria-label="Destaques" className="glass drift absolute -bottom-6 left-4 right-4 rounded-2xl p-5 shadow-lift sm:left-auto sm:-left-10 sm:right-auto sm:w-72 sm:p-6">
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-accent-light">Em resumo</p>
+            <ul className="mt-3 space-y-2">
+              {[["97%", "taxa média de resposta"], ["+600", "inquiridores certificados"], ["11", "províncias cobertas"]].map(([n, l]) => (
+                <li key={l} className="flex items-baseline gap-3">
+                  <span className="font-display text-2xl font-extrabold text-white">{n}</span>
+                  <span className="text-sm text-white/85">{l}</span>
+                </li>
+              ))}
+            </ul>
+          </aside>
+        </div>
       </div>
     </section>
   );

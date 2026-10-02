@@ -18,6 +18,7 @@ export const metadata: Metadata = {
     type: "website", locale: "pt_MZ", siteName: "Celinka Survey", url: SITE.url,
     title: "Celinka Survey — Dados para o Desenvolvimento Sustentável",
     description: "Pesquisa estatística, monitoria e avaliação de impacto em Moçambique. +40k entrevistas, 11 províncias.",
+    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "Inquiridoras da Celinka Survey em trabalho de campo" }],
   },
 };
 

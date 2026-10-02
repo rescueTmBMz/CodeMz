@@ -39,6 +39,6 @@ Todo o texto, números, projectos, notícias, vagas e contactos estão em **`src
 ## Notas
 
 - **Formulários** (contacto e newsletter) validam no browser e abrem o programa de email do visitante. Para envio directo, ligue um serviço (EmailJS, Formspree…) no `onSubmit` de `src/components/ContactForm.tsx` e `NewsletterForm.tsx`.
-- **Fotografias:** o site funciona sem fotografias (fundo geométrico). Para as usar, coloque-as em `public/` e referencie-as nos componentes.
+- **Fotografias:** as 4 fotografias de campo estão em `public/photos/` (optimizadas) e declaradas em `PHOTOS`, em `src/lib/data.ts`. Para trocar ou acrescentar, edite essa lista; `public/og.jpg` é a imagem de partilha nas redes sociais.
 - **Acessibilidade:** verificado com axe-core (WCAG 2.1 A/AA) — sem violações. Contraste do verde tratado com variantes `accent` (fundos/botões, texto escuro) e `accent-ink` (texto sobre fundo claro).
 - `legacy-static/` guarda a versão anterior (HTML/CSS/JS simples) para referência.

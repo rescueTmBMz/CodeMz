@@ -9,6 +9,7 @@ import { PartnerWall } from "@/components/Partners";
 import { Testimonials } from "@/components/Testimonials";
 import { CtaBand } from "@/components/CtaBand";
 import { Icon } from "@/components/Icons";
+import { FieldGallery } from "@/components/FieldGallery";
 import { SectionHeading } from "@/components/Section";
 import { INSIGHTS, SERVICES } from "@/lib/data";
 
@@ -77,6 +78,17 @@ export default function Home() {
             ))}
           </ul>
           <div className="mt-12"><Testimonials count={2} dark /></div>
+        </div>
+      </section>
+
+      <section className="py-20 sm:py-24" aria-labelledby="h-campo">
+        <div className="container-x">
+          <SectionHeading
+            eyebrow="Trabalho de campo"
+            title={<span id="h-campo">O terreno, documentado</span>}
+            lead="A nossa equipa chega onde é necessário — de canoa, a pé ou de moto — para garantir que cada voz seja registada com rigor e respeito."
+          />
+          <FieldGallery />
         </div>
       </section>
 
