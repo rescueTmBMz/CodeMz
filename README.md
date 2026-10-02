@@ -1,34 +1,44 @@
-# Celinka Survey — website
+# Celinka Survey — site institucional
 
-Site institucional da Celinka Survey Consulting & Services Lda. (Maputo, Moçambique). Esta versão aplica um layout inspirado no [3ie](https://www.3ieimpact.org/) à estrutura e ao conteúdo do `index.html` em produção.
+Aplicação **Next.js 16 (App Router)** + **Tailwind CSS 4** + **Lucide React**, exportada como site estático.
+Design institucional inspirado no 3ie, com as cores do distintivo: marinho `#0C2237`, azul `#14559C`, verde `#1E9E58`.
 
-As cores do distintivo foram mantidas:
+## Páginas
 
-| Cor | Hex |
+| Rota | Conteúdo |
 | --- | --- |
-| Azul | `#14559C` |
-| Verde | `#1E9E58` |
-| Marinho | `#0C2237` |
+| `/` | Hero, números animados, desafios interactivos (ciclo de decisão), serviços, projectos filtráveis, histórias de campo, insights, parceiros |
+| `/sobre/` | Missão, visão e valores · tecnologia e qualidade · parceiros · testemunhos |
+| `/servicos/` | Os 6 serviços, controlo de qualidade e ferramentas |
+| `/projetos/` e `/projetos/[slug]/` | Portfólio filtrável por sector e estudos de caso |
+| `/recursos/` | Notícias, notas metodológicas e histórias de campo (filtrável) |
+| `/carreiras/` · `/contacto/` | Vagas (candidatura por email) · formulário e contactos |
 
-## Estrutura
+## Desenvolvimento
 
+```bash
+npm install
+npm run dev        # http://localhost:3000
+npm run build      # gera a pasta out/ (site estático)
+npm run lint       # verificação de tipos
 ```
-index.html        página única com secções por âncora (#sobre, #servicos, #campo, #portfolio, #parceiros,
-                  #tecnologia, #noticias, #historias, #carreiras, #contacto)
-css/style.css     estilos e tokens de cor
-js/main.js        tradução PT/EN, carrossel, menu, galeria, filtro de parceiros, testemunhos e formulário
-img/              logo-celinka.png e partners/ (logótipos dos parceiros)
-```
-
-As fotografias usadas pela página (`img/hero-1.jpg` … `hero-5.jpg`, `sobre-*.jpg`, `svc-*.jpg`, `gallery-1…12.jpg`, `news-1…3.jpg`, `story-1…3.jpg`, `carreiras.jpg`) são as que já existem na pasta `img/` do servidor. Não estão neste repositório.
 
 ## Publicar
 
-Substitua `index.html`, `css/style.css` e `js/main.js` no servidor. Acrescente também `img/logo-celinka.png` e a pasta `img/partners/`.
+`npm run build` cria a pasta **`out/`**. Copie o seu conteúdo para o alojamento (cPanel, Netlify, Vercel, GitHub Pages na raiz de um domínio…).
+O site está preparado para ser servido na raiz do domínio (`/`).
 
-## Editar
+## Editar conteúdo
 
-- **Textos em português:** directamente no `index.html`.
-- **Traduções em inglês:** no objecto `EN` em `js/main.js`, com a mesma chave `data-i18n` usada no HTML.
-- **Vagas:** secção `#carreiras` do `index.html`.
-- **Formulário:** preencha `EMAILJS_CONFIG` em `js/main.js` (publicKey, serviceId, templateId) para enviar via EmailJS. Sem essas chaves, o formulário abre o programa de email do visitante com a mensagem preenchida.
+Todo o texto, números, projectos, notícias, vagas e contactos estão em **`src/lib/data.ts`**.
+
+- Novo projecto: acrescente um objecto a `PROJECTS` (a página de estudo de caso é gerada automaticamente).
+- Novo artigo ou notícia: acrescente a `INSIGHTS`.
+- Contactos: objecto `SITE`.
+
+## Notas
+
+- **Formulários** (contacto e newsletter) validam no browser e abrem o programa de email do visitante. Para envio directo, ligue um serviço (EmailJS, Formspree…) no `onSubmit` de `src/components/ContactForm.tsx` e `NewsletterForm.tsx`.
+- **Fotografias:** o site funciona sem fotografias (fundo geométrico). Para as usar, coloque-as em `public/` e referencie-as nos componentes.
+- **Acessibilidade:** verificado com axe-core (WCAG 2.1 A/AA) — sem violações. Contraste do verde tratado com variantes `accent` (fundos/botões, texto escuro) e `accent-ink` (texto sobre fundo claro).
+- `legacy-static/` guarda a versão anterior (HTML/CSS/JS simples) para referência.
