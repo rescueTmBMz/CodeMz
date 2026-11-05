@@ -1,8 +1,8 @@
 {
-  "name": "celinka-survey-web",
+  "name": "fjc-website",
   "version": "1.0.0",
   "private": true,
-  "description": "Site institucional da Celinka Survey Consulting & Services Lda.",
+  "description": "Site institucional da Fundação Joaquim Chissano (fjc.org.mz).",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

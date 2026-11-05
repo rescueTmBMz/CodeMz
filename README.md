@@ -1,44 +1,18 @@
-# Celinka Survey — site institucional
+# Fundação Joaquim Chissano — website (fjc.org.mz)
 
-Aplicação **Next.js 16 (App Router)** + **Tailwind CSS 4** + **Lucide React**, exportada como site estático.
-Design institucional inspirado no 3ie, com as cores do distintivo: marinho `#0C2237`, azul `#14559C`, verde `#1E9E58`.
+Next.js 16 (App Router) + Tailwind CSS 4, exportado como site estático.
 
-## Páginas
+Páginas: Início · Quem somos · Plano Estratégico 2026–2035 · Projectos · Contacto.
 
-| Rota | Conteúdo |
-| --- | --- |
-| `/` | Hero, números animados, desafios interactivos (ciclo de decisão), serviços, projectos filtráveis, histórias de campo, insights, parceiros |
-| `/sobre/` | Missão, visão e valores · tecnologia e qualidade · parceiros · testemunhos |
-| `/servicos/` | Os 6 serviços, controlo de qualidade e ferramentas |
-| `/projetos/` e `/projetos/[slug]/` | Portfólio filtrável por sector e estudos de caso |
-| `/recursos/` | Notícias, notas metodológicas e histórias de campo (filtrável) |
-| `/carreiras/` · `/contacto/` | Vagas (candidatura por email) · formulário e contactos |
+## Publicar no cPanel (fjc.org.mz)
 
-## Desenvolvimento
-
-```bash
-npm install
-npm run dev        # http://localhost:3000
-npm run build      # gera a pasta out/ (site estático)
-npm run lint       # verificação de tipos
-```
-
-## Publicar
-
-`npm run build` cria a pasta **`out/`**. Copie o seu conteúdo para o alojamento (cPanel, Netlify, Vercel, GitHub Pages na raiz de um domínio…).
-O site está preparado para ser servido na raiz do domínio (`/`).
+1. `npm install && npm run build` → gera a pasta `out/` (ou use o ZIP `fjc-website-cpanel.zip` já preparado).
+2. cPanel → **Gestor de Ficheiros** → `public_html/` do domínio fjc.org.mz → **Carregar** o ZIP e **Extrair** (o conteúdo tem de ficar directamente em `public_html/`, incluindo o `.htaccess` — activar "Mostrar ficheiros ocultos").
+3. cPanel → **SSL/TLS Status** → executar AutoSSL para fjc.org.mz e www.fjc.org.mz. O `.htaccess` força HTTPS e o domínio sem `www`.
+4. Testar o formulário em `/contacto/`: envia por `enviar.php` (PHP `mail()`) para info@fjc.org.mz. Se o alojamento bloquear `mail()`, o formulário abre o programa de email como alternativa.
 
 ## Editar conteúdo
 
-Todo o texto, números, projectos, notícias, vagas e contactos estão em **`src/lib/data.ts`**.
+Textos, pilares, projectos, parceiros e galeria: `src/lib/data.ts`. Imagens: `public/photos/` e `public/partners/`.
 
-- Novo projecto: acrescente um objecto a `PROJECTS` (a página de estudo de caso é gerada automaticamente).
-- Novo artigo ou notícia: acrescente a `INSIGHTS`.
-- Contactos: objecto `SITE`.
-
-## Notas
-
-- **Formulários** (contacto e newsletter) validam no browser e abrem o programa de email do visitante. Para envio directo, ligue um serviço (EmailJS, Formspree…) no `onSubmit` de `src/components/ContactForm.tsx` e `NewsletterForm.tsx`.
-- **Fotografias:** as 4 fotografias de campo estão em `public/photos/` (optimizadas) e declaradas em `PHOTOS`, em `src/lib/data.ts`. Para trocar ou acrescentar, edite essa lista; `public/og.jpg` é a imagem de partilha nas redes sociais.
-- **Acessibilidade:** verificado com axe-core (WCAG 2.1 A/AA) — sem violações. Contraste do verde tratado com variantes `accent` (fundos/botões, texto escuro) e `accent-ink` (texto sobre fundo claro).
-- `legacy-static/` guarda a versão anterior (HTML/CSS/JS simples) para referência.
+> **Nota sobre as fotografias:** as imagens actuais foram recortadas de uma folha de contactos (baixa resolução, ~285 px). Para melhor qualidade, substitua os ficheiros de `public/photos/` (mesmos nomes) pelos originais (`IMG-20260731-WA0022.jpg` → `lancamento.jpg`, `Joaquim Chissano.jpg` → `presidente.jpg`, etc.), o logotipo `public/logo-fjc.png` por `Logotipo FJC.jpg` convertido/original, e volte a fazer o build.
