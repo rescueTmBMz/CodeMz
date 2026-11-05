@@ -1,29 +1,44 @@
-# Fundação Joaquim Chissano — configuração Apache (cPanel)
+# Fundação Joaquim Chissano — Apache / cPanel
 Options -Indexes
 DirectoryIndex index.html
 
 <IfModule mod_rewrite.c>
 RewriteEngine On
-# Forçar HTTPS e domínio sem "www"
+# HTTPS e domínio sem "www"
 RewriteCond %{HTTPS} off [OR]
 RewriteCond %{HTTP_HOST} ^www\. [NC]
 RewriteRule ^ https://fjc.org.mz%{REQUEST_URI} [L,R=301]
+# Aplicação de página única: rotas desconhecidas voltam ao index.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !^/(api)/
+RewriteRule ^ /index.html [L]
 </IfModule>
 
-ErrorDocument 404 /404.html
+<IfModule mod_mime.c>
+AddType video/mp4 .mp4
+AddType image/webp .webp
+AddType image/svg+xml .svg
+AddType font/woff2 .woff2
+</IfModule>
 
 <IfModule mod_headers.c>
 Header always set X-Content-Type-Options "nosniff"
 Header always set Referrer-Policy "strict-origin-when-cross-origin"
 Header always set X-Frame-Options "SAMEORIGIN"
-<FilesMatch "\.(css|js|woff2|png|jpg|svg|ico)$">
+Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+# Ficheiros com hash (assets/) nunca mudam; imagens/vídeos 30 dias; HTML sempre revalidado
+<FilesMatch "\.(js|css|woff2)$">
   Header set Cache-Control "public, max-age=31536000, immutable"
 </FilesMatch>
-<FilesMatch "\.html$">
+<FilesMatch "\.(webp|jpg|jpeg|png|svg|ico|mp4|pdf)$">
+  Header set Cache-Control "public, max-age=2592000"
+</FilesMatch>
+<FilesMatch "\.(html|xml|txt)$">
   Header set Cache-Control "no-cache"
 </FilesMatch>
 </IfModule>
 
 <IfModule mod_deflate.c>
-AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml application/xml text/plain
 </IfModule>

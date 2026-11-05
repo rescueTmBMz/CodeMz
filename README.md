@@ -1,18 +1,58 @@
-# Fundação Joaquim Chissano — website (fjc.org.mz)
+# Publicar no cPanel (fjc.org.mz) — versão estática
 
-Next.js 16 (App Router) + Tailwind CSS 4, exportado como site estático.
+O design, as animações e os conteúdos não foram alterados. O build estático não precisa de Node, base de dados nem de variáveis de ambiente.
 
-Páginas: Início · Quem somos · Plano Estratégico 2026–2035 · Projectos · Contacto.
+```bash
+npm install
+npm run package:cpanel     # gera dist/public/ e fjc-website-cpanel.zip
+```
 
-## Publicar no cPanel (fjc.org.mz)
+1. cPanel → **Gestor de Ficheiros** → `public_html/` (domínio fjc.org.mz) → carregar o ZIP → **Extrair** (o `.htaccess` tem de ficar em `public_html/`; activar "Mostrar ficheiros ocultos").
+2. cPanel → **SSL/TLS Status** → executar AutoSSL para fjc.org.mz e www.fjc.org.mz (o `.htaccess` força HTTPS e o domínio sem `www`).
+3. Notícias: no modo estático mostra-se o conteúdo editorial (o mesmo que o site apresenta sem credenciais das redes). O feed automático Facebook/LinkedIn exige o backend Node abaixo.
 
-1. `npm install && npm run build` → gera a pasta `out/` (ou use o ZIP `fjc-website-cpanel.zip` já preparado).
-2. cPanel → **Gestor de Ficheiros** → `public_html/` do domínio fjc.org.mz → **Carregar** o ZIP e **Extrair** (o conteúdo tem de ficar directamente em `public_html/`, incluindo o `.htaccess` — activar "Mostrar ficheiros ocultos").
-3. cPanel → **SSL/TLS Status** → executar AutoSSL para fjc.org.mz e www.fjc.org.mz. O `.htaccess` força HTTPS e o domínio sem `www`.
-4. Testar o formulário em `/contacto/`: envia por `enviar.php` (PHP `mail()`) para info@fjc.org.mz. Se o alojamento bloquear `mail()`, o formulário abre o programa de email como alternativa.
+Para activar o backend (alojamento Node.js + MySQL), compilar com `VITE_ENABLE_BACKEND=true npm run build` e seguir as instruções seguintes.
 
-## Editar conteúdo
+---
 
-Textos, pilares, projectos, parceiros e galeria: `src/lib/data.ts`. Imagens: `public/photos/` e `public/partners/`.
+# Website institucional — Fundação Joaquim Chissano
 
-> **Nota sobre as fotografias:** as imagens actuais foram recortadas de uma folha de contactos (baixa resolução, ~285 px). Para melhor qualidade, substitua os ficheiros de `public/photos/` (mesmos nomes) pelos originais (`IMG-20260731-WA0022.jpg` → `lancamento.jpg`, `Joaquim Chissano.jpg` → `presidente.jpg`, etc.), o logotipo `public/logo-fjc.png` por `Logotipo FJC.jpg` convertido/original, e volte a fazer o build.
+Website full-stack em React, TypeScript, Vite, Hono, tRPC e Drizzle ORM. O frontend apresenta os pilares, a estratégia, o impacto, os parceiros, a actualidade e os canais oficiais da Fundação. O backend mantém uma cache das publicações sociais e nunca expõe credenciais ao browser.
+
+## Executar e validar
+
+```bash
+npm install
+npm run db:push
+npm run check
+npm run build
+npm start
+```
+
+O servidor fica disponível em `http://localhost:3000`. O formulário de contacto prepara uma mensagem no programa de email do visitante; não guarda dados pessoais nem simula envio.
+
+## Actualização automática das notícias
+
+A secção de notícias consulta as APIs oficiais no servidor, no máximo uma vez a cada dez minutos. O frontend volta a consultar o feed ao focar a janela e a cada quinze minutos. As publicações ficam em cache na tabela `social_posts`, permitindo manter as últimas notícias disponíveis se uma API falhar temporariamente.
+
+Sem credenciais válidas, o website apresenta apenas o conteúdo editorial já existente. Não utiliza scraping nem publicações fictícias.
+
+### Facebook
+
+Configurar no ambiente do servidor:
+
+- `FACEBOOK_PAGE_ACCESS_TOKEN`: Page Access Token válido, preferencialmente de longa duração, com autorização para ler as publicações da página.
+- `FACEBOOK_PAGE_ID`: já identificado como `61551227054424`.
+- `FACEBOOK_API_VERSION`: versão suportada pela aplicação Meta; o valor inicial é `v23.0` e deve ser actualizado quando necessário.
+
+### LinkedIn
+
+Configurar no ambiente do servidor:
+
+- `LINKEDIN_ACCESS_TOKEN`: token OAuth com a permissão de leitura aprovada para o autor.
+- `LINKEDIN_AUTHOR_URN`: URN do autor, por exemplo `urn:li:person:...` ou `urn:li:organization:...`.
+- `LINKEDIN_API_VERSION`: versão mensal suportada pela aplicação LinkedIn; o valor inicial é `202610`.
+
+O perfil fornecido é um perfil de membro (`/in/`). A leitura automática pode exigir um Person URN e a permissão restrita `r_member_social`, sujeita a aprovação do LinkedIn. Para uma página de organização, são necessários o Organization URN, a permissão `r_organization_social` e um papel administrativo adequado.
+
+Nunca prefixar estas variáveis com `VITE_`, colocar tokens no frontend ou commitar segredos. Consulte `.env.example` apenas para os nomes das variáveis; os valores reais devem ser definidos no ambiente seguro de execução.
